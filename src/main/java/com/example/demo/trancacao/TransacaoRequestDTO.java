@@ -5,7 +5,7 @@ public record TransacaoRequestDTO (
         String account_id,
         String category_id,
         String descricao,
-        String valor,
+        Double valor,
         String data,
         String tipo,
         String status

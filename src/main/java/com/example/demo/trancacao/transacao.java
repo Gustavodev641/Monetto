@@ -1,9 +1,15 @@
 package com.example.demo.trancacao;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Table(name = "accounts")
+@Getter
+@Setter
+@NoArgsConstructor
 
 public class transacao {
 
@@ -21,7 +27,7 @@ public class transacao {
     private String category_id;
 
     @Column(name = "valor")
-    private String valor;
+    private Double valor;
 
     @Column(name = "descricao")
     private String descricao;

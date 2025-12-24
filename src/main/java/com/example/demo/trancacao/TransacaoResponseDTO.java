@@ -15,7 +15,7 @@ public class TransacaoResponseDTO {
     private String user_id;
     private String account_id;
     private String category_id;
-    private String valor;
+    private Double valor;
     private String descricao;
     private String data;
     private String tipo;

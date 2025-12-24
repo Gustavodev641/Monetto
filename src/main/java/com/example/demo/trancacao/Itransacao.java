@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Repository
-public interface Itransacao extends JpaRepository<Transaction, String> {
+public interface Itransacao extends JpaRepository<Transaction, Long> {
     // Busca transações por usuário ordenadas pela data mais recente
     List<Transaction> findByUserIdOrderByDataDesc(String userId);
 

@@ -1,18 +1,23 @@
 package com.example.demo.conta;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Entity
+@Table(name = "accounts")
+@Getter
+@Setter
+@NoArgsConstructor
 public class conta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "user_id")
-    private String user_id;
+    @Column(name = "userId")
+    private String userId;
 
     @Column(name = "nome")
     private String nome;
@@ -21,8 +26,8 @@ public class conta {
     private String tipo;
 
     @Column(name = "saldo_init")
-    private String saldo_init;
+    private Double saldo_init;
 
     @Column(name = "saldo_atual")
-    private String saldo_atual;
+    private Double saldo_atual;
 }

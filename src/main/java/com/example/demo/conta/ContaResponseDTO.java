@@ -15,6 +15,6 @@ public class ContaResponseDTO {
     private String user_id;
     private String nome;
     private String tipo;
-    private String saldo_init;
-    private String saldo_atual;
+    private Double saldo_init;
+    private Double saldo_atual;
 }
