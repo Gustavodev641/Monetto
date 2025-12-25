@@ -1,34 +1,37 @@
 package com.example.demo.user;
 
-
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.jetbrains.annotations.NotNull;
 
-@Table(name = "Users")
-@Entity(name = "Users")
+@Table(name = "users")
+@Entity
 @Getter
+@Setter
 @NoArgsConstructor
-@EqualsAndHashCode()
-
+@EqualsAndHashCode(of = "id")
 public class User {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "nome")
-    private String nome;
+    @Column(name = "nome", nullable = false)
+    private String name;
 
-    @Column(name = "Email")
+    @Column(name = "Email", nullable = false, unique = true)
     private String Email;
 
-    @Column(name = "CPF")
+    @Column(name = "CPF", unique = true)
     private String cpf;
 
     @Column(name = "telefone")
     private String telefone;
 
-    @Column(name ="password")
+    @Column(name = "password", nullable = false)
     private String password;
 
     @Column(name = "moeda_padrao")
@@ -37,4 +40,12 @@ public class User {
     @Column(name = "data_criacao")
     private String data_criacao;
 
+    public User(@NotNull UserRequestDTO data) {
+        this.name = data.nome();
+        this.Email = data.email();
+        this.cpf = data.cpf();
+        this.telefone = data.telefone();
+        this.data_criacao = data.data_criacao();
+
+    }
 }
