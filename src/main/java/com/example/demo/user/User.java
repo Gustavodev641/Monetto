@@ -23,7 +23,7 @@ public class User {
     private String name;
 
     @Column(name = "Email", nullable = false, unique = true)
-    private String Email;
+    private String email;
 
     @Column(name = "CPF", unique = true)
     private String cpf;
@@ -42,10 +42,11 @@ public class User {
 
     public User(@NotNull UserRequestDTO data) {
         this.name = data.nome();
-        this.Email = data.email();
+        this.email = data.email();
         this.cpf = data.cpf();
         this.telefone = data.telefone();
         this.data_criacao = data.data_criacao();
-
+        this.password = data.password();
+        this.moeda_padrao = data.moeda_padrao();
     }
 }
