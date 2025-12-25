@@ -23,4 +23,10 @@ public class UserController {
         User user = new User(data);
         return repository.save(user);
     }
+    @GetMapping
+    public List<UserResponseDTO> getAll() {
+        return repository.findAll().stream()
+                .map(UserResponseDTO::new)
+                .toList();
+    }
 }
